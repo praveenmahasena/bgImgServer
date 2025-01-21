@@ -41,6 +41,7 @@ func (s Server) Run() error {
 		con, conErr := li.Accept()
 
 		if conErr != nil {
+			l.Panicln(conErr)
 			// do better error handling with slog
 			continue
 		}

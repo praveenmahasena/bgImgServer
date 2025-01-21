@@ -3,6 +3,7 @@ all: test
 all: vet
 all: package
 all: package_race
+run: run
 
 
 test: vet
@@ -35,8 +36,13 @@ package: bgserver
 
 package_race: bgserver_race
 
+run: run
+
 bgserver:
 	go build -o ./bin/bgserver ./cmd/bgimg/
 
 bgserver_race:
 	go build --race -o ./bin/bgserver_race ./cmd/bgimg/
+
+run:
+	./bin/bgserver_race
